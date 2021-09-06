@@ -1,6 +1,7 @@
 import requests
 import threading 
-import urllib import os
+import urllib 
+import os
 import time
 import random 
 import json 
