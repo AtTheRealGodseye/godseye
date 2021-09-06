@@ -1,3 +1,5 @@
+import os
+os.chdir("../")
 with open('config.json') as f:
     config = json.load(f)
     token = config.get('token')
