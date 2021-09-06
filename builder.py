@@ -1,4 +1,5 @@
 import os
+import json
 os.chdir("../")
 with open('config.json') as f:
     config = json.load(f)
