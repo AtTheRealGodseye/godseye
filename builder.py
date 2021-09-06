@@ -10,8 +10,7 @@ with open('config.json') as f:
     HTP1=config.get('HTP')
     TLC1=config.get('TLC')
 
-mainstr=(((f"""
-import requests
+mainstr=(((f"""import requests
 import threading 
 import urllib import os
 import time
