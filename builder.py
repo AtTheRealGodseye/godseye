@@ -10,7 +10,7 @@ with open('config.json') as f:
     HTP1=config.get('HTP')
     TLC1=config.get('TLC')
 
-mainstr=(((f"""
+mainstr=((("""
 
 
 
